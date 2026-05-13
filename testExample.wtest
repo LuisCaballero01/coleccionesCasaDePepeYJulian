@@ -1,9 +1,13 @@
-import example.pepita
+import cuentas.*
 
-describe "group of tests for pepita" {
+describe "Prueba de cuentas bancarias" {
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+  test "La cuenta combinada tiene de cuenta primaria a la corriente y de secundaria a la cuenta con gastos. Si tiene 30000 de salgo en la primaria y 100000 de saldo en la secundaria, su salto total es de 130000" {
+    cuentaCorriente.saldo(30000)
+    cuentaConGastos.saldo(100000)
+    cuentaCombinada.cuentaPrimaria(cuentaCorriente)
+    cuentaCombinada.cuentaSecundaria(cuentaConGastos)
+    assert.equals(130000, cuentaCombinada.saldo())
   }
 
 }
